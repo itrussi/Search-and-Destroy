@@ -35,7 +35,7 @@ def skynet():
   counter = 10
   
   for root, dirs, files in os.walk(Root_DIR):
-    if file != "skynet.py":
+    if file != "Search_Destroy.py":
           for file in files:
               result.append(os.path.join(root, file))
       return result

